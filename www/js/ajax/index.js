@@ -25,7 +25,7 @@ $(document).ready(function () {
         });
     });
 
-    // Login Function
+    // Login ajax
     $('#login-form').on('submit', '', function (e) {
 
         e.preventDefault();
@@ -51,7 +51,11 @@ $(document).ready(function () {
                 }
             },
             error: function () {
-                $('#notice-container').html('<p class="my-3 text-muted fw-light">Internal server error, please reload.</p>');
+                $('#notice-container').html(
+                    '<small class="text-danger fw-light">' +
+                    '<i class="fas fa-exclamation-triangle me-1 fa-fw"></i>500: Internal Server Error.' +
+                    '</small>'
+                );
             },
             complete: function () {
                 $('#progress-container').modal('hide');
@@ -60,6 +64,47 @@ $(document).ready(function () {
 
     });
 
+    // Create account ajax
+    $('#create-form').on('submit', '', function (e) {
 
+        e.preventDefault();
+        var formData = new FormData(this);
+
+        $.ajax({
+            type: 'POST',
+            url: url + 'api/register',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'JSON',
+            beforeSend: function () {
+                $('#progress-container').modal('show');
+            },
+            success: function (data) {
+
+                if (
+                    typeof data === 'object' &&
+                    !Array.isArray(data) &&
+                    data !== null
+                ) {
+                    localStorage.setItem('token', JSON.stringify(data));
+                    location.replace('index.html');
+                } else {
+                    alert(data);
+                }
+            },
+            error: function () {
+                $('#notice-container').html(
+                    '<small class="text-danger fw-light">' +
+                    '<i class="fas fa-exclamation-triangle me-1 fa-fw"></i>500: Internal Server Error.' +
+                    '</small>'
+                );
+            },
+            complete: function () {
+                $('#progress-container').modal('hide');
+            }
+        });
+
+    });
 
 });
