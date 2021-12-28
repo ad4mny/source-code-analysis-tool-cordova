@@ -53,7 +53,7 @@ $(document).ready(function () {
                     data !== null
                 ) {
                     for (var i = 0; i < data['history'].length; i++) {
-                        history.push(data['history'][i]['ad_total_error']);
+                        history.push(parseInt(data['history'][i]['ad_total_error']));
                     }
 
                     var myConfig = {
