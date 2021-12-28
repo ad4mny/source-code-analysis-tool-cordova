@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <title>Scrutinyx</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom-bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Appbar -->
+    <nav class="navbar navbar-light bg-white shadow sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <i class="fas fa-bars fa-fw text-primary"></i>
+            </a>
+            <a class="navbar-brand text-primary" href="about.html">
+                <h3 class="mb-0"><i class="fas fa-code fa-fw fa-sm"></i> Scrutinyx</h3>
+            </a>
+            <a href="profile.html" class="navbar-toggler border-0" type="button">
+                <i class="fas fa-user fa-fw text-primary"></i>
+            </a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-capitalize" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+                    </button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="history.html">File List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="upload.html">Upload Source Code</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex pt-5 ">
+                        <a class="btn btn-danger" href="#" onclick="logout()">Logout</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container-fluid">
+        <div class="row my-3">
+            <div class="col">
+                <h1 class="display-3 mb-0">Result</h1>
+            </div>
+        </div>
+        <div id="display-container">
+            <div class="row pb-3">
+                <div class="col" id="file-info">
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col">
+                    <div id="myChart" class="h-100 w-100" style="min-height: 50vh;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notice Placeholder -->
+    <div class="position-absolute bottom-0 m-3" id="notice-container"></div>
+
+    <!-- Progress Placeholder -->
+    <div class="modal fade" id="progress-container" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div
+                    class="text-center bg-white shadow w-auto p-5 position-absolute top-50 start-50 translate-middle justify-content-center">
+                    <img src="img/load.gif" height="70" width="70"><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script type="text/javascript">
+        window.addEventListener('load', (event) => {
+            $('#offcanvasNavbarLabel').html(token.ud_fullname);
+        });
+    </script>
+
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/zingchart.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/ajax/result.js"></script>
+
+</body>
+
+</html>
