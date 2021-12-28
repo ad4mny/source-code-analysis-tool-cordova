@@ -42,7 +42,7 @@ $(document).ready(function () {
                 $('#progress-container').modal('show');
             },
             success: function (data) {
-                console.log(data);
+
                 if (data != null) {
                     localStorage.setItem('token', JSON.stringify(data));
                     location.replace('index.html');

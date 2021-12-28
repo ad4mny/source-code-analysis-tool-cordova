@@ -1,5 +1,7 @@
 $(document).ready(function () {
+
     $('#offcanvasNavbarLabel').html(token.ud_fullname);
+    
     // File list ajax
     $.ajax({
         type: 'POST',
