@@ -51,8 +51,8 @@
         </div>
     </nav>
 
-    <!-- Content -->
-    <div class="container-fluid">
+    <!-- Upload Container -->
+    <div class="container-fluid" id="upload-container">
         <div class="row my-3">
             <div class="col">
                 <h1 class="display-3 mb-0">Upload</h1>
@@ -62,6 +62,33 @@
             <div class="col">
                 <p>Upload a source code file to begin analysis.</p>
                 <form action="" method="post" class="row g-2"enctype="multipart/form-data" id="upload-form">
+                    <div class="col">
+                        <input type="file" class="form-control" name="source_code" required>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary" name="submit">
+                            <i class="fas fa-file-upload"></i>
+                        </button>
+                    </div>
+                </form>
+                <br>
+                <small class="text-muted">Currently, only PHP and Java language are acceptable and make
+                    sure your file in the stated language.</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Container -->
+    <div class="container-fluid d-none" id="update-container">
+        <div class="row my-3">
+            <div class="col">
+                <h1 class="display-3 mb-0">Update</h1>
+            </div>
+        </div>
+        <div class="row px-1">
+            <div class="col">
+                <p>Update your source code analysis.</p>
+                <form action="" method="post" class="row g-2"enctype="multipart/form-data" id="update-form">
                     <div class="col">
                         <input type="file" class="form-control" name="source_code" required>
                     </div>
@@ -95,12 +122,6 @@
     </div>
 
     <!-- Script -->
-    <script type="text/javascript">
-        window.addEventListener('load', (event) => {
-            $('#offcanvasNavbarLabel').html(token.ud_fullname);
-        });
-    </script>
-
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
