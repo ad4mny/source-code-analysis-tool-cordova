@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     $('#offcanvasNavbarLabel').html(token.ud_fullname);
-    
+
     // File list ajax
     $.ajax({
         type: 'POST',
@@ -34,12 +34,12 @@ $(document).ready(function () {
                         '                                    </a>' +
                         '                                </li>' +
                         '                                <li>' +
-                        '                                    <a href="#" data-bs-toggle="modal" data-bs-target="#uploadModal" class="dropdown-item">' +
+                        '                                    <a href="#" class="dropdown-item" value="' + data[i].fd_id + '"  data-bs-toggle="modal" data-bs-target="#uploadModal">' +
                         '                                        Update' +
                         '                                    </a>' +
                         '                                </li>' +
                         '                                <li>' +
-                        '                                    <a href="#" class="dropdown-item" value="' + data[i].fd_id + '" onclick="delete()">' +
+                        '                                    <a href="#" class="dropdown-item delete-btn" id="' + data[i].fd_id + '">' +
                         '                                        Delete' +
                         '                                    </a>' +
                         '                                </li>' +
@@ -71,5 +71,40 @@ $(document).ready(function () {
         }
     });
 
+    // Delete file ajax
+    $(document).on('click', '.delete-btn', function (e) {
 
+        $.ajax({
+            type: 'POST',
+            url: url + 'api/deleteFile',
+            data: {
+                uid: token.ud_id,
+                file_id: this.id
+            },
+            dataType: 'JSON',
+            beforeSend: function () {
+                $('#progress-container').show();
+            },
+            success: function (data) {
+
+                if (data != false) {
+                    alert('File deleted.');
+                } else {
+                    alert('Unable to delete the selected file');
+                }
+
+                location.reload();
+            },
+            error: function () {
+                $('#notice-container').html(
+                    '<small class="text-danger fw-light">' +
+                    '<i class="fas fa-exclamation-triangle me-1 fa-fw"></i>500: Internal Server Error.' +
+                    '</small>'
+                );
+            },
+            complete: function () {
+                $('#progress-container').hide();
+            }
+        });
+    });
 });
