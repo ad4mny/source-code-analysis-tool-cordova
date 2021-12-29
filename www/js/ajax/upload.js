@@ -5,7 +5,7 @@ $(document).ready(function () {
     var params = new URL(window.location.href);
     var file_id = params.searchParams.get("id");
 
-    if (file_id != "") {
+    if (file_id != null) {
         $('#update-container').removeClass('d-none');
         $('#upload-container').addClass('d-none');
     }

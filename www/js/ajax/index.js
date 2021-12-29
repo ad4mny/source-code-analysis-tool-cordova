@@ -39,7 +39,7 @@ $(document).ready(function () {
             contentType: false,
             dataType: 'JSON',
             beforeSend: function () {
-                $('#progress-container').modal('show');
+                $('#progress-container').show();
             },
             success: function (data) {
 
@@ -58,7 +58,7 @@ $(document).ready(function () {
                 );
             },
             complete: function () {
-                $('#progress-container').modal('hide');
+                $('#progress-container').hide();
             }
         });
 
@@ -78,7 +78,7 @@ $(document).ready(function () {
             contentType: false,
             dataType: 'JSON',
             beforeSend: function () {
-                $('#progress-container').modal('show');
+                $('#progress-container').show();
             },
             success: function (data) {
 
@@ -101,7 +101,7 @@ $(document).ready(function () {
                 );
             },
             complete: function () {
-                $('#progress-container').modal('hide');
+                $('#progress-container').hide();
             }
         });
 

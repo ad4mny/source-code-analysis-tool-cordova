@@ -18,7 +18,7 @@ $(document).ready(function () {
             $('#progress-container').show();
         },
         success: function (data) {
-console.log(data);
+
             if (
                 typeof data === 'object' &&
                 !Array.isArray(data) &&
