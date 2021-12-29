@@ -18,7 +18,7 @@ $(document).ready(function () {
             $('#progress-container').show();
         },
         success: function (data) {
-
+console.log(data);
             if (
                 typeof data === 'object' &&
                 !Array.isArray(data) &&
@@ -44,7 +44,7 @@ $(document).ready(function () {
                     '        <p>' + data["date"] + '</p>' +
                     '        <div class="pb-1">' +
                     '            <a href="history.html" class="btn btn-sm btn-primary"><i class="fas fa-history fa-fw fa-sm"></i> View History</a>' +
-                    '            <a href="history.html" class="btn btn-sm btn-outline-secondary"><i class="fas fa-upload fa-fw fa-sm"></i> Update Code</a>' +
+                    '            <a href="upload.html?id=' + data["id"] + '" class="btn btn-sm btn-outline-secondary"><i class="fas fa-upload fa-fw fa-sm"></i> Update Code</a>' +
                     '        </div>'
                 );
 
@@ -120,20 +120,20 @@ $(document).ready(function () {
                         '            <div class="card-body d-inline-flex">' +
                         '                <div class="pe-3 border-end">' +
                         '                    <small class="text-muted">LINE</small>' +
-                        '                    <p class="mb-0">' + data.data[i]['line'] + '</p>' +
+                        '                    <p class="mb-0">' + data.data[x]['line'] + '</p>' +
                         '                </div>' +
                         '                <div class="ps-3">' +
                         '                    <small class="text-muted">CODE</small>' +
-                        '                    <p class="mb-0">' + data.data[i]['content'] + '</p>' +
+                        '                    <p class="mb-0">' + data.data[x]['content'] + '</p>' +
                         '                </div>' +
                         '            </div>' +
                         '            <div class="card-footer">' +
                         '                <small class="text-muted">DESCRIPTION</small>' +
-                        '                <p class="mb-0">' + data.data[i]['desc'] + '</p>' +
+                        '                <p class="mb-0">' + data.data[x]['desc'] + '</p>' +
                         '            </div>' +
                         '            <div class="card-footer">' +
                         '                <small class="text-muted">EXAMPLE CODE FIX</small>' +
-                        '                <p class="mb-0">' + data.data[i]['code'] + '</p>' +
+                        '                <p class="mb-0">' + data.data[x]['code'] + '</p>' +
                         '            </div>' +
                         '        </div>' +
                         '    </div>' +

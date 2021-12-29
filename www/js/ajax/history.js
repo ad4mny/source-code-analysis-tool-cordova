@@ -34,7 +34,7 @@ $(document).ready(function () {
                         '                                    </a>' +
                         '                                </li>' +
                         '                                <li>' +
-                        '                                    <a href="#" class="dropdown-item" value="' + data[i].fd_id + '"  data-bs-toggle="modal" data-bs-target="#uploadModal">' +
+                        '                                    <a href="upload.html?id=' + data[i].fd_id + '" class="dropdown-item">' +
                         '                                        Update' +
                         '                                    </a>' +
                         '                                </li>' +
